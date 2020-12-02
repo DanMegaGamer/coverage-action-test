@@ -1,3 +1,4 @@
+# It's a thing.
 class Thing
   def covered?
     "I've been tested"
