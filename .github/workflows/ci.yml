@@ -3,7 +3,7 @@ on: [push]
 jobs:
   rspec:
     name: Rspec
-    runs-on: ubuntu-18.04
+    runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
       - uses: actions/setup-ruby@v1
@@ -13,6 +13,8 @@ jobs:
         run: bundle install
       - name: Run tests
         run: bundle exec rspec
+      - name: output
+        run: cat coverage/.last_run.json
       - name: Parse JSON
         id: coverage-percentage
         shell: bash
