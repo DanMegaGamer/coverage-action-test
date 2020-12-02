@@ -1,0 +1,15 @@
+name: Tests
+on: [push, pull_request]
+jobs:
+  rspec:
+    name: Rspec
+    runs-on: ubuntu-18.04
+    steps:
+      - uses: actions/checkout@v2
+      - uses: actions/setup-ruby@v1
+        with:
+          ruby-version: 2.7.2
+      - name: Install dependencies
+        run: |
+          gem install bundler
+          bundle install
