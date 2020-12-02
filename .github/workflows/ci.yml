@@ -13,3 +13,9 @@ jobs:
         run: bundle install
       - name: Run tests
         run: bundle exec rspec
+      - name: Store coverage
+        uses: actions/upload-artifact@master
+        if: always()
+        with:
+          name: coverage-report
+          path: coverage
