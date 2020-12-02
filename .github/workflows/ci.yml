@@ -21,4 +21,4 @@ jobs:
           echo '::set-output name=coverage::$value'
           echo $value
       - name: Show coverage
-        run: echo "coverage is ${ steps.coverage-percentage.outputs.coverage }"
+        run: echo "coverage is ${{ steps.coverage-percentage.outputs.coverage }}"
