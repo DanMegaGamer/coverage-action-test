@@ -17,5 +17,5 @@ jobs:
         uses: actions/upload-artifact@v2
         if: always()
         with:
-          name: main-coverage-report
+          name: ${GITHUB_REF}/coverage
           path: coverage
