@@ -24,9 +24,10 @@ jobs:
           path: coverage
 
 name: Compare coverage
-on: [push]
-  branches-ignore:
-    - main
+on:
+  push:
+    branches-ignore:
+      - main
 jobs:
   rspec:
     name: Rspec
