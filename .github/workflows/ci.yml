@@ -19,8 +19,8 @@ jobs:
         id: coverage-percentage
         shell: bash
         run: |
-          value='jq .result.covered_percent coverage/.last_run.json'
-          echo '::set-output name=coverage::$value'
+          value=`jq .result.covered_percent coverage/.last_run.json`
+          echo "::set-output name=coverage::$value"
           echo $value
       - name: Show coverage
         run: echo "coverage is ${{ steps.coverage-percentage.outputs.coverage }}"
