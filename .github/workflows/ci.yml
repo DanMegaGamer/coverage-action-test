@@ -1,0 +1,24 @@
+name: Tests
+on:
+  push:
+    branches:
+      - main
+jobs:
+  rspec:
+    name: Rspec
+    runs-on: ubuntu-18.04
+    steps:
+      - uses: actions/checkout@v2
+      - uses: actions/setup-ruby@v1
+        with:
+          ruby-version: 2.7.2
+      - name: Install dependencies
+        run: bundle install
+      - name: Run tests
+        run: bundle exec rspec
+      - name: Store coverage
+        uses: actions/upload-artifact@v2
+        if: always()
+        with:
+          name: coverage-report
+          path: coverage
